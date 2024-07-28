@@ -18,14 +18,15 @@ def run_turing_machine(
 ) -> Tuple[str, List, bool]:
     #pass  # Implement the function
 
-    i = 100;
-    i_min = 100;
-    i_real = 100
+    i = 10;
+    i_min = 10;
+    i_real = 10
     history=[]
     next_state = machine["start state"]
     actual_state = next_state
-    my_input = machine["blank"] * 100 + input_
-    while next_state not in machine["final states"]:
+    my_input = machine["blank"] * 10 + input_
+    step = 0
+    while (next_state not in machine["final states"]) and (steps is None or step < steps):
         if i > len(my_input)-1:
             my_input = my_input + str(machine["blank"])
         actual_state = machine["table"][next_state][my_input[i]]
@@ -36,7 +37,7 @@ def run_turing_machine(
             "reading": my_input[i],
             #"position": i-1000 if i-1000 >= 0 else 0,
             "position": i_real,
-            "memory": my_input[i_min:].strip(),
+            "memory": my_input[i_min:].strip(machine["blank"]),
             "transition": {
             }
         }
@@ -64,8 +65,12 @@ def run_turing_machine(
         #print (curr)
         if i < i_min:
             i_min=i
+        step += 1
 
-    #print(next_state)
-    #print("OUTPUT:")
-    #print("["+my_input+"]")
-    return (my_input[i_min:].strip(), history, True,)
+    halted = actual_state in machine["final states"]
+    print("INPUT:")
+    print(input_)
+    print("MY_OUTPUT:")
+    print("["+my_input.strip(machine["blank"])+"]")
+    #return (my_input[i_min:].strip(machine["blank"]), history, halted)
+    return (my_input.strip(machine["blank"]), history, halted)
