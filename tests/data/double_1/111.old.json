@@ -144,7 +144,7 @@
     {
       "state": "e5",
       "reading": "0",
-      "position": 0,
+      "position": -1,
       "memory": "01101",
       "transition": {
         "write": "1",
@@ -154,7 +154,7 @@
     {
       "state": "e1",
       "reading": "1",
-      "position": 1,
+      "position": 0,
       "memory": "11101",
       "transition": {
         "write": "0",
@@ -164,7 +164,7 @@
     {
       "state": "e2",
       "reading": "1",
-      "position": 2,
+      "position": 1,
       "memory": "10101",
       "transition": {
         "write": "1",
@@ -174,7 +174,7 @@
     {
       "state": "e2",
       "reading": "0",
-      "position": 3,
+      "position": 2,
       "memory": "10101",
       "transition": {
         "write": "0",
@@ -234,7 +234,7 @@
     {
       "state": "e5",
       "reading": "0",
-      "position": 0,
+      "position": -1,
       "memory": "101011",
       "transition": {
         "write": "1",
@@ -244,7 +244,7 @@
     {
       "state": "e1",
       "reading": "1",
-      "position": 1,
+      "position": 0,
       "memory": "111011",
       "transition": {
         "write": "0",
@@ -254,7 +254,7 @@
     {
       "state": "e2",
       "reading": "0",
-      "position": 2,
+      "position": 1,
       "memory": "110011",
       "transition": {
         "write": "0",
@@ -264,7 +264,7 @@
     {
       "state": "e3",
       "reading": "1",
-      "position": 3,
+      "position": 2,
       "memory": "110011",
       "transition": {
         "write": "1",
@@ -324,7 +324,7 @@
     {
       "state": "e5",
       "reading": "0",
-      "position": 0,
+      "position": -1,
       "memory": "1100111",
       "transition": {
         "write": "1",
@@ -334,7 +334,7 @@
     {
       "state": "e1",
       "reading": "0",
-      "position": 1,
+      "position": 0,
       "memory": "1110111",
       "transition": {
         "L": "done"

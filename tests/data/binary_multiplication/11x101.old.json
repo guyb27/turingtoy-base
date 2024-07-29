@@ -354,7 +354,7 @@
     {
       "state": "have1",
       "reading": "+",
-      "position": 0,
+      "position": -1,
       "memory": "+1c*10",
       "transition": {
         "L": "add1"
@@ -363,7 +363,7 @@
     {
       "state": "add1",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "+1c*10",
       "transition": {
         "write": "I",
@@ -373,21 +373,21 @@
     {
       "state": "back1",
       "reading": "+",
-      "position": 1,
+      "position": 0,
       "memory": "I+1c*10",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "1",
-      "position": 2,
+      "position": 1,
       "memory": "I+1c*10",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "c",
-      "position": 3,
+      "position": 2,
       "memory": "I+1c*10",
       "transition": {
         "write": "1",
@@ -397,7 +397,7 @@
     {
       "state": "read",
       "reading": "1",
-      "position": 2,
+      "position": 1,
       "memory": "I+11*10",
       "transition": {
         "write": "c",
@@ -407,7 +407,7 @@
     {
       "state": "have1",
       "reading": "+",
-      "position": 1,
+      "position": 0,
       "memory": "I+c1*10",
       "transition": {
         "L": "add1"
@@ -416,14 +416,14 @@
     {
       "state": "add1",
       "reading": "I",
-      "position": 0,
+      "position": -1,
       "memory": "I+c1*10",
       "transition": "L"
     },
     {
       "state": "add1",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "I+c1*10",
       "transition": {
         "write": "I",
@@ -433,21 +433,21 @@
     {
       "state": "back1",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "II+c1*10",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "+",
-      "position": 2,
+      "position": 1,
       "memory": "II+c1*10",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "c",
-      "position": 3,
+      "position": 2,
       "memory": "II+c1*10",
       "transition": {
         "write": "1",
@@ -457,7 +457,7 @@
     {
       "state": "read",
       "reading": "+",
-      "position": 2,
+      "position": 1,
       "memory": "II+11*10",
       "transition": {
         "L": "rewrite"
@@ -466,7 +466,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "II+11*10",
       "transition": {
         "write": "1",
@@ -476,7 +476,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 0,
+      "position": -1,
       "memory": "I1+11*10",
       "transition": {
         "write": "1",
@@ -486,11 +486,18 @@
     {
       "state": "rewrite",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "11+11*10",
       "transition": {
         "R": "double"
       }
+    },
+    {
+      "state": "double",
+      "reading": "1",
+      "position": 0,
+      "memory": "11+11*10",
+      "transition": "R"
     },
     {
       "state": "double",
@@ -501,14 +508,14 @@
     },
     {
       "state": "double",
-      "reading": "1",
+      "reading": "+",
       "position": 2,
       "memory": "11+11*10",
       "transition": "R"
     },
     {
       "state": "double",
-      "reading": "+",
+      "reading": "1",
       "position": 3,
       "memory": "11+11*10",
       "transition": "R"
@@ -522,15 +529,8 @@
     },
     {
       "state": "double",
-      "reading": "1",
-      "position": 5,
-      "memory": "11+11*10",
-      "transition": "R"
-    },
-    {
-      "state": "double",
       "reading": "*",
-      "position": 6,
+      "position": 5,
       "memory": "11+11*10",
       "transition": {
         "write": "0",
@@ -685,7 +685,7 @@
     {
       "state": "have0",
       "reading": "+",
-      "position": 0,
+      "position": -1,
       "memory": "11+110c*",
       "transition": {
         "L": "add0"
@@ -694,7 +694,7 @@
     {
       "state": "add0",
       "reading": "1",
-      "position": 0,
+      "position": -1,
       "memory": "11+110c*",
       "transition": {
         "write": "I",
@@ -704,6 +704,13 @@
     {
       "state": "back0",
       "reading": "+",
+      "position": 0,
+      "memory": "1I+110c*",
+      "transition": "R"
+    },
+    {
+      "state": "back0",
+      "reading": "1",
       "position": 1,
       "memory": "1I+110c*",
       "transition": "R"
@@ -717,22 +724,15 @@
     },
     {
       "state": "back0",
-      "reading": "1",
+      "reading": "0",
       "position": 3,
       "memory": "1I+110c*",
       "transition": "R"
     },
     {
       "state": "back0",
-      "reading": "0",
-      "position": 4,
-      "memory": "1I+110c*",
-      "transition": "R"
-    },
-    {
-      "state": "back0",
       "reading": "c",
-      "position": 5,
+      "position": 4,
       "memory": "1I+110c*",
       "transition": {
         "write": "0",
@@ -742,7 +742,7 @@
     {
       "state": "read",
       "reading": "0",
-      "position": 4,
+      "position": 3,
       "memory": "1I+1100*",
       "transition": {
         "write": "c",
@@ -752,21 +752,21 @@
     {
       "state": "have0",
       "reading": "1",
-      "position": 3,
-      "memory": "1I+11c0*",
-      "transition": "L"
-    },
-    {
-      "state": "have0",
-      "reading": "1",
       "position": 2,
       "memory": "1I+11c0*",
       "transition": "L"
     },
     {
       "state": "have0",
-      "reading": "+",
+      "reading": "1",
       "position": 1,
+      "memory": "1I+11c0*",
+      "transition": "L"
+    },
+    {
+      "state": "have0",
+      "reading": "+",
+      "position": 0,
       "memory": "1I+11c0*",
       "transition": {
         "L": "add0"
@@ -775,14 +775,14 @@
     {
       "state": "add0",
       "reading": "I",
-      "position": 0,
+      "position": -1,
       "memory": "1I+11c0*",
       "transition": "L"
     },
     {
       "state": "add0",
       "reading": "1",
-      "position": 0,
+      "position": -1,
       "memory": "1I+11c0*",
       "transition": {
         "write": "I",
@@ -792,13 +792,20 @@
     {
       "state": "back0",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "II+11c0*",
       "transition": "R"
     },
     {
       "state": "back0",
       "reading": "+",
+      "position": 1,
+      "memory": "II+11c0*",
+      "transition": "R"
+    },
+    {
+      "state": "back0",
+      "reading": "1",
       "position": 2,
       "memory": "II+11c0*",
       "transition": "R"
@@ -812,15 +819,8 @@
     },
     {
       "state": "back0",
-      "reading": "1",
-      "position": 4,
-      "memory": "II+11c0*",
-      "transition": "R"
-    },
-    {
-      "state": "back0",
       "reading": "c",
-      "position": 5,
+      "position": 4,
       "memory": "II+11c0*",
       "transition": {
         "write": "0",
@@ -830,7 +830,7 @@
     {
       "state": "read",
       "reading": "1",
-      "position": 4,
+      "position": 3,
       "memory": "II+1100*",
       "transition": {
         "write": "c",
@@ -840,14 +840,14 @@
     {
       "state": "have1",
       "reading": "1",
-      "position": 3,
+      "position": 2,
       "memory": "II+1c00*",
       "transition": "L"
     },
     {
       "state": "have1",
       "reading": "+",
-      "position": 2,
+      "position": 1,
       "memory": "II+1c00*",
       "transition": {
         "L": "add1"
@@ -856,21 +856,21 @@
     {
       "state": "add1",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "II+1c00*",
       "transition": "L"
     },
     {
       "state": "add1",
       "reading": "I",
-      "position": 0,
+      "position": -1,
       "memory": "II+1c00*",
       "transition": "L"
     },
     {
       "state": "add1",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "II+1c00*",
       "transition": {
         "write": "I",
@@ -880,35 +880,35 @@
     {
       "state": "back1",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "III+1c00*",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "I",
-      "position": 2,
+      "position": 1,
       "memory": "III+1c00*",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "+",
-      "position": 3,
+      "position": 2,
       "memory": "III+1c00*",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "1",
-      "position": 4,
+      "position": 3,
       "memory": "III+1c00*",
       "transition": "R"
     },
     {
       "state": "back1",
       "reading": "c",
-      "position": 5,
+      "position": 4,
       "memory": "III+1c00*",
       "transition": {
         "write": "1",
@@ -918,7 +918,7 @@
     {
       "state": "read",
       "reading": "1",
-      "position": 4,
+      "position": 3,
       "memory": "III+1100*",
       "transition": {
         "write": "c",
@@ -928,18 +928,11 @@
     {
       "state": "have1",
       "reading": "+",
-      "position": 3,
+      "position": 2,
       "memory": "III+c100*",
       "transition": {
         "L": "add1"
       }
-    },
-    {
-      "state": "add1",
-      "reading": "I",
-      "position": 2,
-      "memory": "III+c100*",
-      "transition": "L"
     },
     {
       "state": "add1",
@@ -957,8 +950,15 @@
     },
     {
       "state": "add1",
+      "reading": "I",
+      "position": -1,
+      "memory": "III+c100*",
+      "transition": "L"
+    },
+    {
+      "state": "add1",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "III+c100*",
       "transition": {
         "write": "I",
@@ -968,6 +968,13 @@
     {
       "state": "back1",
       "reading": "I",
+      "position": 0,
+      "memory": "IIII+c100*",
+      "transition": "R"
+    },
+    {
+      "state": "back1",
+      "reading": "I",
       "position": 1,
       "memory": "IIII+c100*",
       "transition": "R"
@@ -981,22 +988,15 @@
     },
     {
       "state": "back1",
-      "reading": "I",
+      "reading": "+",
       "position": 3,
       "memory": "IIII+c100*",
       "transition": "R"
     },
     {
       "state": "back1",
-      "reading": "+",
-      "position": 4,
-      "memory": "IIII+c100*",
-      "transition": "R"
-    },
-    {
-      "state": "back1",
       "reading": "c",
-      "position": 5,
+      "position": 4,
       "memory": "IIII+c100*",
       "transition": {
         "write": "1",
@@ -1006,7 +1006,7 @@
     {
       "state": "read",
       "reading": "+",
-      "position": 4,
+      "position": 3,
       "memory": "IIII+1100*",
       "transition": {
         "L": "rewrite"
@@ -1015,7 +1015,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 3,
+      "position": 2,
       "memory": "IIII+1100*",
       "transition": {
         "write": "1",
@@ -1025,7 +1025,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 2,
+      "position": 1,
       "memory": "III1+1100*",
       "transition": {
         "write": "1",
@@ -1035,7 +1035,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 1,
+      "position": 0,
       "memory": "II11+1100*",
       "transition": {
         "write": "1",
@@ -1045,7 +1045,7 @@
     {
       "state": "rewrite",
       "reading": "I",
-      "position": 0,
+      "position": -1,
       "memory": "I111+1100*",
       "transition": {
         "write": "1",
@@ -1055,11 +1055,18 @@
     {
       "state": "rewrite",
       "reading": " ",
-      "position": 0,
+      "position": -1,
       "memory": "1111+1100*",
       "transition": {
         "R": "double"
       }
+    },
+    {
+      "state": "double",
+      "reading": "1",
+      "position": 0,
+      "memory": "1111+1100*",
+      "transition": "R"
     },
     {
       "state": "double",
@@ -1084,22 +1091,15 @@
     },
     {
       "state": "double",
-      "reading": "1",
+      "reading": "+",
       "position": 4,
       "memory": "1111+1100*",
       "transition": "R"
     },
     {
       "state": "double",
-      "reading": "+",
-      "position": 5,
-      "memory": "1111+1100*",
-      "transition": "R"
-    },
-    {
-      "state": "double",
       "reading": "1",
-      "position": 6,
+      "position": 5,
       "memory": "1111+1100*",
       "transition": "R"
     },
